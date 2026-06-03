@@ -1,19 +1,54 @@
 /.phpunit.cache
+/.phpunit.result.cache
+
+# Dependencies
 /node_modules
+/vendor
+
+# Build files
 /public/build
 /public/hot
 /public/storage
+
+# Laravel storage/generated files
 /storage/*.key
-/vendor
+/storage/logs/*.log
+/storage/framework/cache/data/*
+/storage/framework/sessions/*
+/storage/framework/views/*.php
+
+# Environment files
 .env
-.env.backup
-.env.production
-.phpunit.result.cache
+.env.*
+!.env.example
+
+# Database files
+/database/*.sqlite
+/database/*.sqlite-journal
+
+# Vendor archives - do not push compressed vendor files
+vendor.zip
+vendor.rar
+vendor.7z
+vendor.tar
+vendor.tar.gz
+
+# Auth/secrets
+auth.json
+
+# Homestead
 Homestead.json
 Homestead.yaml
-auth.json
+
+# Logs
 npm-debug.log
 yarn-error.log
+
+# IDE/editors
 /.fleet
 /.idea
 /.vscode
+
+# OS files
+.DS_Store
+Thumbs.db
