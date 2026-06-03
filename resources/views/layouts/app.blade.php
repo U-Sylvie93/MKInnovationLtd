@@ -4,10 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="MK Innovations Ltd - Premier digital solutions agency and technology academy in Kigali, Rwanda.">
+
     <title>MK Innovations Ltd | Web Development & Academy</title>
+
+    <!-- Website favicon / browser tab logo -->
+    <link rel="icon" href="{{ asset('favicon.ico') }}?v=3" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}?v=3" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{{ asset('logo.png') }}?v=3">
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
     <style>
         body { font-family: 'Inter', sans-serif; }
         .bg-primary-navy { background-color: #0B2F61; }
@@ -43,14 +51,21 @@
             position: relative;
             z-index: 0;
         }
+
         /* No overlay gradient */
         .hero-card > * { position: relative; z-index: 2; }
+
         .hero-card:hover {
             transform: translateY(-10px) scale(1.02);
             border: 2px solid #E5A913;
             box-shadow: 0 25px 40px -12px rgba(0,0,0,0.3);
         }
-        .hero-card:hover .btn-primary { transform: scale(1.05); box-shadow: 0 10px 20px -5px rgba(0,0,0,0.2); }
+
+        .hero-card:hover .btn-primary {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px -5px rgba(0,0,0,0.2);
+        }
+
         .btn-primary { transition: all 0.2s ease; }
         
         .bg-slideshow {
@@ -62,6 +77,7 @@
             overflow: hidden;
             z-index: 0;
         }
+
         .slide {
             position: absolute;
             top: 0;
@@ -73,9 +89,11 @@
             opacity: 0;
             animation: crossfade 15s infinite;
         }
+
         .slide1 { background-image: url('{{ asset('images/background1.jpg') }}'); animation-delay: 0s; }
         .slide2 { background-image: url('{{ asset('images/background2.jpg') }}'); animation-delay: 5s; }
         .slide3 { background-image: url('{{ asset('images/background3.jpg') }}'); animation-delay: 10s; }
+
         @keyframes crossfade {
             0% { opacity: 0; }
             16% { opacity: 1; }
@@ -93,33 +111,40 @@
             width: 100%;
             cursor: grab;
         }
+
         .carousel-track {
             display: flex;
             gap: 2rem;
             animation: scrollLeft 40s linear infinite;
             width: fit-content;
         }
+
         .carousel-wrapper:hover .carousel-track {
             animation-play-state: paused;
         }
+
         .choose-card {
             display: inline-block;
             white-space: normal;
             width: 300px;
             flex-shrink: 0;
         }
+
         @keyframes scrollLeft {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
+
         @media (max-width: 768px) {
             .carousel-track { gap: 1rem; animation-duration: 25s; }
             .choose-card { width: 260px; }
         }
     </style>
 </head>
+
 <body class="bg-gray-50">
     @include('partials.header')
+
     <main>
         @if(session('success'))
             <div class="fixed top-20 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md px-4">
@@ -128,8 +153,10 @@
                 </div>
             </div>
         @endif
+
         @yield('content')
     </main>
+
     @include('partials.footer')
 </body>
 </html>
